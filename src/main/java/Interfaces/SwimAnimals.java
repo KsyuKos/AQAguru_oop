@@ -1,2 +1,5 @@
-package Interfaces;public interface SwimAnimals {
+package Interfaces;
+
+public interface SwimAnimals {
+    void swim();
 }

@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface ActForBirds{
+public interface FlyAnimals {
     void fly();
-
+    void makeTreeHouse();
 }
