@@ -6,7 +6,7 @@ public class Main {
         straus.makeVoice();
         straus.setSpeed(55.99);
         straus.setWinterFly(true);
-        straus.winterFly();
+        straus.getWinterFly();
         straus.run();
     }
 }

@@ -8,7 +8,7 @@ public abstract class Birds extends Animals {
     protected boolean isFlight;
     protected double speed;
     protected boolean winterFly;
-    protected List<String> coldCountry = List.of("Россия", "Норвегия", "Финляндия");
+    protected static List<String> coldCountry = List.of("Россия", "Норвегия", "Финляндия");
 
     public Birds(Gender gender, int age, String nickname, boolean isPet, String countryBorn, String areaLiving, String sizing, boolean isFlight) {
         super(gender, age, nickname, Type.Bird, isPet, countryBorn, areaLiving, sizing);
@@ -39,10 +39,10 @@ public abstract class Birds extends Animals {
     }
 
     private boolean isColdCountry(String country) {
-        return this.coldCountry.contains(country);
+        return coldCountry.contains(country);
     }
 
-    public void winterFly() {
+    public void getWinterFly() {
         if (needWinterFly()) {
             System.out.println("Эта птица улетает на зиму");
         } else if (!isColdCountry(this.countryBorn)) {
