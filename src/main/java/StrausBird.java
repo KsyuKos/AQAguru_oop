@@ -1,9 +1,11 @@
-import Interfaces.GroundAnimals;
+import Enums.Gender;
+import Enums.Type;
+import Interfaces.LandAnimals;
 
-public class StrausBird extends Birds implements GroundAnimals {
+public class StrausBird extends Birds implements LandAnimals {
 
-    public StrausBird(int gender, int age, String nickname, String type, boolean isPet, String countryBorn, String areaLiving, String sizing) {
-        super(gender, age, nickname, type, isPet, countryBorn, areaLiving, sizing);
+    public StrausBird(Gender gender, int age, String nickname, boolean isPet, String countryBorn, String areaLiving, String sizing, boolean isFlight) {
+        super(gender, age, nickname, isPet, countryBorn, areaLiving, sizing, isFlight);
     }
 
     @Override
@@ -13,18 +15,19 @@ public class StrausBird extends Birds implements GroundAnimals {
 
     @Override
     public void run() {
-
+        System.out.println("Страус бежит");
     }
 
     @Override
     public void stay() {
-
+        System.out.println("Страус стоит");
     }
 
     @Override
     public void jump() {
-
+        System.out.println("Страус прыгает");
     }
+
 
 
 }

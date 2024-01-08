@@ -1,10 +1,12 @@
-import Interfaces.GroundAnimals;
+import Enums.Gender;
+import Enums.Type;
+import Interfaces.LandAnimals;
 
-public class Cats extends Animals implements GroundAnimals {
+public class Cats extends Animals implements LandAnimals {
 
 
-    public Cats(int gender, int age, String nickname, String type, boolean isPet, String countryBorn, String areaLiving, String sizing) {
-        super(gender, age, nickname, type, isPet, countryBorn, areaLiving, sizing);
+    public Cats(Gender gender, int age, String nickname, boolean isPet, String countryBorn, String areaLiving, String sizing) {
+        super(gender, age, nickname, Type.Mammal, isPet, countryBorn, areaLiving, sizing);
     }
 
     @Override

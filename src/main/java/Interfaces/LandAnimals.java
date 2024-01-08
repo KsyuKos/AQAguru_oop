@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface GroundAnimals {
+public interface LandAnimals {
     void run();
     void stay();
     void jump();

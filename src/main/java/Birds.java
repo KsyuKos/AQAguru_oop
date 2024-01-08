@@ -1,43 +1,54 @@
+import Enums.Gender;
+import Enums.Type;
+
+import java.util.List;
+
 public abstract class Birds extends Animals {
 
     protected boolean isFlight;
     protected double speed;
     protected boolean winterFly;
+    protected List<String> coldCountry = List.of("Россия", "Норвегия", "Финляндия");
 
-    public Birds(int gender, int age, String nickname, String type, boolean isPet, String countryBorn, String areaLiving, String sizing) {
-        super(gender, age, nickname, type, isPet, countryBorn, areaLiving, sizing);
-    }
-
-    public void setFlight(boolean flight) {
-        isFlight = flight;
-    }
-
-    public void setNeedWinterFly(boolean needWinterFly) {
-        this.winterFly = needWinterFly;
+    public Birds(Gender gender, int age, String nickname, boolean isPet, String countryBorn, String areaLiving, String sizing, boolean isFlight) {
+        super(gender, age, nickname, Type.Bird, isPet, countryBorn, areaLiving, sizing);
+        this.isFlight = isFlight;
     }
 
     public boolean isFlight() {
         return isFlight;
     }
 
+    public void setWinterFly(boolean winterFly) {
+        if (!isFlight()) {
+            this.winterFly = false;
+            System.out.println("Эта птица летать не умеет, установлен признак неперелетности по умолчанию.");
+        } else this.winterFly = winterFly;
+    }
+
+    private boolean needWinterFly() {
+        return this.winterFly;
+    }
+
     public void setSpeed(double speed) {
         if (isFlight()) {
             this.speed = speed;
         } else {
-            System.out.println("Эта птица летать не умеет");
+            System.out.println("Эта птица летать не умеет. Скорость не задана.");
         }
     }
 
-    public boolean needWinterFly() {
-        return this.winterFly;
-    };
+    private boolean isColdCountry(String country) {
+        return this.coldCountry.contains(country);
+    }
 
     public void winterFly() {
-        if(needWinterFly()) {
+        if (needWinterFly()) {
             System.out.println("Эта птица улетает на зиму");
-        }
-    };
-
+        } else if (!isColdCountry(this.countryBorn)) {
+            System.out.println("Птица и так живет в теплом климате");
+        } else System.out.println("Это неперелетная птица");
+    }
 
 
 }
